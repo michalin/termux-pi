@@ -23,5 +23,8 @@ echo "**********************************"
 pkg install proot-distro -y
 proot-distro install debian
 proot-distro login debian -- $PWD/install-deb
+echo
+echo "Installation finished. Type exit or CTRL+c on phone and open the Termux app again."
+echo "Termux: SSH port 8022, Debian environment: SSH port 2022, VNC on port 59000"
 
 
