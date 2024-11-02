@@ -17,7 +17,7 @@ fi
 EOF
 )
 
-if grep -F -e -q "/usr/sbin/sshd" .profile; then
+if grep -F -e "/usr/sbin/sshd" .profile; then
 	echo "Root profile already configured"
 else
 	echo "$root_profile" >> .profile
