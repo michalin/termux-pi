@@ -1,0 +1,27 @@
+pkg update
+pkg upgrade -y
+echo
+echo "*******************************"
+echo "* Installing X-Window system  *"
+echo "*******************************"
+pkg install x11-repo -y
+pkg install tigervnc -y 
+pkg install xorg-xhost -y
+pkg install xorg-xcalc -y
+echo ""
+echo "You need to assign a password for VNC"
+vncserver :0
+echo
+echo "*************************"
+echo "*   Copy scripts        *"
+echo "*************************"
+cp -a $PWD/home/.* ~/
+echo
+echo "**********************************"
+echo "* Installing Debian environment  *"
+echo "**********************************"
+pkg install proot-distro -y
+proot-distro install debian
+proot-distro login debian -- $PWD/install-deb
+
+

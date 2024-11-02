@@ -1,0 +1,38 @@
+echo "**********************************"
+echo "  Setting up Debian environment  *"
+echo "**********************************"
+apt update
+apt upgrade -y
+apt install openssh-server -y
+mkdir /run/sshd
+
+echo "------------------------"
+echo "-   /root/.profile     -"
+echo "------------------------"
+
+root_profile=$(cat << 'EOF' 
+if ! [ -v SSH_CLIENT ]; then
+	/usr/sbin/sshd
+fi
+EOF
+)
+
+if grep -F -e -q "/usr/sbin/sshd" .profile; then
+	echo "Root profile already configured"
+else
+	echo "$root_profile" >> .profile
+	cat .profile
+	echo "Autostart of sshd added to .profile"
+fi
+
+echo 'export DISPLAY=":0"' > /etc/profile.d/profile.sh
+
+echo 
+echo "-----------------------------------"
+echo "-  Allowing root login over ssh   -"
+echo "-----------------------------------"
+echo "PermitRootLogin yes" > /etc/ssh/sshd_config.d/sshd.conf
+
+echo "Set a password for the root user of the Debian environment"
+passwd
+
