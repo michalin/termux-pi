@@ -1,3 +1,11 @@
+if ! [ -v SSH_CLIENT ]; then
+echo "Enter new password for Root"
+passwd
+sshd
+echo "Termux SSH port 8022"
+fi
+
+termux-wake-lock
 pkg update
 pkg upgrade -y
 echo
@@ -26,5 +34,4 @@ proot-distro login debian -- $PWD/install-deb
 echo
 echo "Installation finished. Type exit or CTRL+c on phone and open the Termux app again."
 echo "Termux: SSH port 8022, Debian environment: SSH port 2022, VNC on port 5900"
-
-
+termux-wake-unlock
