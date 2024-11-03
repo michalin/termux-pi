@@ -27,6 +27,10 @@ fi
 
 echo 'export DISPLAY=":0"' > /etc/profile.d/profile.sh
 
+mkdir termux
+ln -s /data/data/com.termux/files/usr /termux/usr
+ln -s /data/data/com.termux/files/usr /termux/home
+
 echo 
 echo "-----------------------------------"
 echo "-  Allowing root login over ssh   -"
