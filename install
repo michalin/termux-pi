@@ -25,6 +25,7 @@ echo "*************************"
 echo "*   Copy scripts        *"
 echo "*************************"
 cp -a $PWD/home/.* ~/
+mkdir $PREFIX/local
 echo
 echo "**********************************"
 echo "* Installing Debian environment  *"
