@@ -7,6 +7,7 @@ exit 0
 fi
 
 termux-wake-lock
+termux-change-repo
 pkg update
 pkg upgrade -y
 echo
