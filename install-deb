@@ -27,9 +27,9 @@ fi
 
 echo 'export DISPLAY=":0"' > /etc/profile.d/profile.sh
 
-mkdir termux
-ln -s /data/data/com.termux/files/usr /termux/usr
-ln -s /data/data/com.termux/files/home /termux/home
+mkdir /root/termux
+ln -s /data/data/com.termux/files/usr root/termux/usr
+ln -s /data/data/com.termux/files/home root/termux/home
 
 echo 
 echo "-----------------------------------"
